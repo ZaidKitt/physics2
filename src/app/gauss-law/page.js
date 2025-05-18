@@ -271,18 +271,6 @@ export default function GaussLawPage() {
           </div>
         </div>
       </section>
-      
-      {/* Footer */}
-      <footer style={{
-        padding: '2rem 1rem',
-        borderTop: '1px solid #1f2937',
-        textAlign: 'center',
-        marginTop: '2rem'
-      }}>
-        <p style={{ color: '#9ca3af', fontSize: '0.875rem' }}>
-          Created by <span style={{ color: '#00b7eb' }}>Zaid Alsaleh</span> | University ID: <span style={{ color: '#00b7eb' }}>20220126</span>
-        </p>
-      </footer>
     </div>
   );
 } 

@@ -98,28 +98,6 @@ export default function Home() {
               >
                 Start Learning
               </a>
-              <a
-                href="/about"
-                style={{ 
-                  padding: '0.75rem 1.5rem',
-                  backgroundColor: 'transparent',
-                  border: '1px solid #4b5563',
-                  color: '#d1d5db',
-                  borderRadius: '0.375rem',
-                  transition: 'all 0.3s',
-                  textDecoration: 'none'
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.borderColor = '#9ca3af';
-                  e.currentTarget.style.color = '#ffffff';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.borderColor = '#4b5563';
-                  e.currentTarget.style.color = '#d1d5db';
-                }}
-              >
-                About the Project
-              </a>
             </div>
           </div>
         </div>

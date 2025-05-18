@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
               <div className="footer-content">
                 <div className="footer-copyright">
                   <p style={{ color: "#d1d5db" }}>
-                    &copy; {new Date().getFullYear()} Student Name
+                    &copy; {new Date().getFullYear()} Created by <span style={{ color: "#00b7eb" }}>Zaid Alsaleh</span> | University ID: <span style={{ color: "#00b7eb" }}>20220126</span>
                   </p>
                 </div>
                 <div className="footer-title">

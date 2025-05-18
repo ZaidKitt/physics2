@@ -32,7 +32,6 @@ export default function Navbar() {
     { name: 'Capacitance and Dielectrics', href: '/capacitance' },
     { name: 'Current and Resistance', href: '/current' },
     { name: 'Direct Current Circuits', href: '/dc-circuits' },
-    { name: 'About', href: '/about' },
   ];
 
   return (
