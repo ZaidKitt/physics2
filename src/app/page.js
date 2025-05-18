@@ -1,103 +1,222 @@
-import Image from "next/image";
+'use client';
+
+import { useState, useEffect } from 'react';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [windowSize, setWindowSize] = useState({
+    width: 0,
+    height: 0,
+  });
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Responsive grid columns based on window width
+  const getGridColumns = () => {
+    if (windowSize.width >= 1024) return 'repeat(3, 1fr)';
+    if (windowSize.width >= 768) return 'repeat(2, 1fr)';
+    return '1fr';
+  };
+
+  // Responsive font sizes
+  const getHeadingSize = () => {
+    if (windowSize.width >= 1024) return '3.75rem';
+    if (windowSize.width >= 768) return '3rem';
+    return '2.25rem';
+  };
+
+  return (
+    <div style={{ minHeight: '100vh' }}>
+      {/* Hero Section */}
+      <section style={{ 
+        padding: '5rem 1rem',
+        background: 'linear-gradient(to right, #111827, #1f2937)'
+      }}>
+        <div style={{ 
+          maxWidth: '80rem',
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}>
+          <div style={{ textAlign: 'center' }}>
+            <h1 style={{ 
+              fontSize: getHeadingSize(),
+              fontWeight: 'bold',
+              marginBottom: '1.5rem',
+              backgroundImage: 'linear-gradient(to right, #00b7eb, #8b5cf6)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent'
+            }} className="text-gradient">
+              Welcome to the Interactive Physics Project
+            </h1>
+            <p style={{ 
+              fontSize: '1.25rem',
+              color: '#d1d5db',
+              maxWidth: '48rem',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              marginBottom: '2.5rem'
+            }}>
+              Explore six physics chapters with interactive simulations and stunning visuals.
+            </p>
+            <div style={{ 
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '1rem'
+            }}>
+              <a
+                href="/electric-fields"
+                style={{ 
+                  padding: '0.75rem 1.5rem',
+                  backgroundColor: '#1a1c25',
+                  border: '1px solid #00b7eb',
+                  color: '#00b7eb',
+                  borderRadius: '0.375rem',
+                  transition: 'all 0.3s',
+                  textDecoration: 'none'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = '#00b7eb';
+                  e.currentTarget.style.color = '#0f1116';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = '#1a1c25';
+                  e.currentTarget.style.color = '#00b7eb';
+                }}
+              >
+                Start Learning
+              </a>
+              <a
+                href="/about"
+                style={{ 
+                  padding: '0.75rem 1.5rem',
+                  backgroundColor: 'transparent',
+                  border: '1px solid #4b5563',
+                  color: '#d1d5db',
+                  borderRadius: '0.375rem',
+                  transition: 'all 0.3s',
+                  textDecoration: 'none'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.borderColor = '#9ca3af';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.borderColor = '#4b5563';
+                  e.currentTarget.style.color = '#d1d5db';
+                }}
+              >
+                About the Project
+              </a>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Chapters Preview */}
+      <section style={{ padding: '4rem 1rem' }}>
+        <div style={{ 
+          maxWidth: '80rem',
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}>
+          <h2 style={{ 
+            fontSize: '1.875rem',
+            fontWeight: 'bold',
+            textAlign: 'center',
+            marginBottom: '3rem',
+            backgroundImage: 'linear-gradient(to right, #00b7eb, #8b5cf6)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent'
+          }} className="text-gradient">
+            Explore Physics Chapters
+          </h2>
+          <div style={{ 
+            display: 'grid',
+            gridTemplateColumns: getGridColumns(),
+            gap: '2rem'
+          }}>
+            {/* Chapter Cards */}
+            {[
+              {
+                title: "Electric Fields",
+                description: "Explore the fundamental concept of electric fields and their properties.",
+                href: "/electric-fields",
+                color: "#00b7eb"
+              },
+              {
+                title: "Gauss's Law",
+                description: "Learn about Gauss's law and its applications in electromagnetism.",
+                href: "/gauss-law",
+                color: "#ff4040"
+              },
+              {
+                title: "Electric Potential",
+                description: "Understand electric potential and potential energy in electric fields.",
+                href: "/electric-potential",
+                color: "#00b7eb"
+              },
+              {
+                title: "Capacitance and Dielectrics",
+                description: "Explore capacitors, capacitance, and the effects of dielectric materials.",
+                href: "/capacitance",
+                color: "#ff4040"
+              },
+              {
+                title: "Current and Resistance",
+                description: "Learn about electric current, resistance, and Ohm's law.",
+                href: "/current",
+                color: "#00b7eb"
+              },
+              {
+                title: "Direct Current Circuits",
+                description: "Understand DC circuits, Kirchhoff's rules, and circuit analysis.",
+                href: "/dc-circuits",
+                color: "#ff4040"
+              }
+            ].map((chapter, index) => (
+              <a
+                key={index}
+                href={chapter.href}
+                style={{ 
+                  display: 'block',
+                  padding: '1.5rem',
+                  backgroundColor: '#1a1c25',
+                  border: '1px solid #1f2937',
+                  borderRadius: '0.5rem',
+                  transition: 'border-color 0.3s',
+                  textDecoration: 'none'
+                }}
+                onMouseOver={(e) => e.currentTarget.style.borderColor = '#374151'}
+                onMouseOut={(e) => e.currentTarget.style.borderColor = '#1f2937'}
+              >
+                <h3 style={{ 
+                  fontSize: '1.25rem',
+                  fontWeight: '600',
+                  marginBottom: '0.75rem',
+                  color: chapter.color
+                }}>
+                  {chapter.title}
+                </h3>
+                <p style={{ color: '#9ca3af' }}>{chapter.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
