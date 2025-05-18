@@ -160,7 +160,7 @@ export default function ElectricFieldsPage() {
             minWidth: 0
           }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1.25rem', color: '#00b7eb' }}>
-              Coulomb's Law
+              Coulomb&apos;s Law
             </h2>
             <p style={{ color: '#fff', marginBottom: '1rem' }}>
               The force between two point charges is:

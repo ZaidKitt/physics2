@@ -418,9 +418,9 @@ export default function GaussLawSimulation() {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="mt-6 w-full glass-card bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-neon-blue/30"
       >
-        <h3 className="text-xl font-bold text-neon-blue mb-3">Gauss's Law Verification</h3>
+        <h3 className="text-xl font-bold text-neon-blue mb-3">Gauss&apos;s Law Verification</h3>
         <p className="text-gray-200">
-          According to Gauss's Law, the electric flux through any closed surface is proportional to the enclosed charge, regardless of the surface shape or size.
+          According to Gauss&apos;s Law, the electric flux through any closed surface is proportional to the enclosed charge, regardless of the surface shape or size.
         </p>
         <div className="mt-4 p-4 bg-gray-900 rounded-lg border border-gray-700">
           <p className="text-white">

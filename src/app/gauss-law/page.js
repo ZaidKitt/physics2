@@ -63,7 +63,7 @@ export default function GaussLawPage() {
           }}
             className="text-gradient"
           >
-            Gauss's Law
+            Gauss&apos;s Law
           </h1>
           <p style={{
             fontSize: '1.25rem',
@@ -133,7 +133,7 @@ export default function GaussLawPage() {
             minWidth: 0
           }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1.25rem', color: '#00b7eb' }}>
-              Gauss's Law
+              Gauss&apos;s Law
             </h2>
             <p style={{ color: '#fff', marginBottom: '1rem' }}>
               The net electric flux through a closed surface is proportional to the enclosed charge:
@@ -163,7 +163,7 @@ export default function GaussLawPage() {
             minWidth: 0
           }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1.25rem', color: '#00b7eb' }}>
-              Applications of Gauss's Law
+              Applications of Gauss&apos;s Law
             </h2>
             <p style={{ color: '#fff', marginBottom: '1rem' }}>
               Useful for calculating electric fields with symmetric charge distributions:
@@ -227,7 +227,7 @@ export default function GaussLawPage() {
               <li><span style={{ color: '#00b7eb', marginRight: 8 }}>D.</span>Remains unchanged if charge moves within the surface</li>
             </ul>
             <p style={{ color: '#fff' }}>
-              All statements are true due to Gauss's Law!
+              All statements are true due to Gauss&apos;s Law!
             </p>
           </div>
 
@@ -263,7 +263,7 @@ export default function GaussLawPage() {
               color: '#fff',
               fontSize: '1rem'
             }}>
-              <p style={{ marginBottom: '0.5rem' }}>Gauss's law:</p>
+              <p style={{ marginBottom: '0.5rem' }}>Gauss&apos;s law:</p>
               <div style={{ textAlign: 'center', color: '#00b7eb' }}>
                 <span dangerouslySetInnerHTML={{ __html: renderMath('\\Phi_E = \\oint \\vec{E} \\cdot d\\vec{A} = \\frac{q_{\\text{in}}}{\\varepsilon_0}', true) }} />
               </div>
